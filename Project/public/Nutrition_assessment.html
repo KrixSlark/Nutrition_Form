@@ -293,7 +293,7 @@ nav .logo img {
         </b>
     </p>
 
-    <form action="http://localhost:3000/submit-form" method="post">
+    <form action="nutritionform-production.up.railway.app/submit-form" method="post">
 
         <h3>1. Personal Details</h3>
 
@@ -575,7 +575,7 @@ nav .logo img {
 
         console.log('Sending data:', data);
 
-        fetch('http://localhost:3000/submit-form', {
+        fetch('https://nutritionform-production.up.railway.app/submit-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
