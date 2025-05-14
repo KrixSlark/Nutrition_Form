@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutritional Assessment Form</title>
+    <!-- <link rel="stylesheet" href="nutrition.css"> -->
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #444;
+    padding: 20px;
+    line-height: 1.6;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    color: #054613;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+h2 {
+    border-left: 4px solid #057324;
+    padding-left: 10px;
+    color: #026227;
+}
+
+
+form {
+    max-width: 800px;
+    margin: auto;
+    background: #ecf9fb;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #1cb53e;
+    border-bottom: 2px solid #06732b;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #34495e;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #06C167;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #008d52;
+}
+
+
+input[type="text"],
+input[type="time"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #bdc3c7;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #09801b;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #0ba268;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #31c06f;
+    color: white;
+    font-weight: 600;
+}
+
+td {
+    background-color: #e2f3f8;
+}
+
+td label {
+    margin-right: 10px;
+    color: #139769;
+    font-weight: 500;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+h4 {
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: 600;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    border: 1px solid #1d9752;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-group label {
+    margin-right: 20px;
+}
+
+input[type="text"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.3);
+    outline: none;
+}
+
+input[type="radio"]:hover,
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+::placeholder {
+    color: #95a5a6;
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+
+    label {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="time"],
+    select {
+        width: 100%;
+    }
+}
+.intro-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.intro-text b {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+nav {
+    background: linear-gradient(90deg, #f12626, #4b1c05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+nav .nav-links {
+    display: flex;
+    gap: 20px; 
+}
+
+nav .nav-links a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s, color 0.3s;
+    font-family:serif;
+}
+
+nav .nav-links a:hover {
+    background-color: crimson;
+    color: #fff;
+    border-radius: 5px;
+    transform: rotate(0deg) scale(1.1);
+}
+
+nav .nav-links a.active {
+    background-color:#592004;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    nav .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    nav .nav-links a {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+}
+
+nav .logo img {
+    height: 60px; 
+}
+
+ </style>
+</head>
+<body>
+ <body>
+
+
+    <h1>Nutritional Assessment Form</h1>
+
+    <p class="intro-text">
+        <b>
+            Welcome to the Nutritional Assessment Form. This form helps gather essential information about your dietary habits, lifestyle, and overall health.
+            Your responses help us personalize your nutrition plan based on your unique needs and goals.
+        </b>
+    </p>
+    <p class="intro-text">
+        <b>
+            Please take your time to complete each section carefully. Your information will remain confidential and will be used solely to enhance your nutritional wellness.
+        </b>
+    </p>
+
+    <form action="http://localhost:3000/submit-form" method="post">
+
+        <h3>1. Personal Details</h3>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name..." required>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" placeholder="Enter your age..." required>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender" id="male" value="male" checked>
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female">
+        <label for="female">Female</label>
+
+        <br><br>
+
+        <label>Your Height:</label><br>
+        <input type="radio" name="heightUnit" id="heightInchesRadio" value="inches" checked>
+        <label for="heightInchesRadio">Inches:</label>
+        <input type="text" id="heightInches" name="heightInches" placeholder="Height in inches">
+
+        <input type="radio" name="heightUnit" id="heightCmRadio" value="cm">
+        <label for="heightCmRadio">Centimeters:</label>
+        <input type="text" id="heightCm" name="heightCm" placeholder="Height in cm">
+
+        <br><br>
+
+        <label>Your Weight:</label><br>
+        <input type="radio" name="weightUnit" id="weightKgRadio" value="kg" checked>
+        <label for="weightKgRadio">Kilograms:</label>
+        <input type="text" id="weightKg" name="weightKg" placeholder="Weight in kg">
+
+        <input type="radio" name="weightUnit" id="weightLbRadio" value="lb">
+        <label for="weightLbRadio">Pounds:</label>
+        <input type="text" id="weightLb" name="weightLb" placeholder="Weight in lb">
+
+        <h3>2. Dietary Preferences and Restrictions</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Preferences</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Foods you like</td>
+                    <td>
+                        <input type="checkbox" name="likes[]" value="Fruits"> Fruits<br>
+                        <input type="checkbox" name="likes[]" value="Vegetables"> Vegetables<br>
+                        <input type="checkbox" name="likes[]" value="Lean Proteins"> Lean Proteins<br>
+                        <input type="checkbox" name="likes[]" value="Whole Grains"> Whole Grains<br>
+                        <input type="checkbox" name="likes[]" value="Dairy"> Dairy<br>
+                        <input type="checkbox" name="likes[]" value="Nuts and Seeds"> Nuts and Seeds<br>
+                        <input type="checkbox" name="likes[]" value="Legumes"> Legumes<br>
+                        <input type="checkbox" name="likes[]" value="Others"> Others: <input type="text" name="likesOther">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Foods you dislike/avoid</td>
+                    <td>
+                        <input type="checkbox" name="dislikes[]" value="Processed Foods"> Processed Foods<br>
+                        <input type="checkbox" name="dislikes[]" value="Sugary Snacks"> Sugary Snacks<br>
+                        <input type="checkbox" name="dislikes[]" value="Gluten"> Gluten<br>
+                        <input type="checkbox" name="dislikes[]" value="Dairy"> Dairy<br>
+                        <input type="checkbox" name="dislikes[]" value="Red Meat"> Red Meat<br>
+                        <input type="checkbox" name="dislikes[]" value="Others"> Others: <input type="text" name="dislikesOther">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Dietary Restrictions/Allergies</td>
+                    <td>
+                        <input type="checkbox" name="restrictions[]" value="Gluten-Free"> Gluten-Free<br>
+                        <input type="checkbox" name="restrictions[]" value="Lactose-Free"> Lactose-Free<br>
+                        <input type="checkbox" name="restrictions[]" value="Nut-Free"> Nut-Free<br>
+                        <input type="checkbox" name="restrictions[]" value="Vegan"> Vegan<br>
+                        <input type="checkbox" name="restrictions[]" value="Others"> Others: <input type="text" name="restrictionsOther">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3. Lifestyle and Daily Routine</h3>
+
+        <h4>Describe your typical activity level:</h4>
+        <div class="checkbox-group">
+            <input type="radio" name="activity" value="Sedentary"> Sedentary (little or no exercise)<br>
+            <input type="radio" name="activity" value="Lightly Active"> Lightly Active (1-3 days/week)<br>
+            <input type="radio" name="activity" value="Moderately Active"> Moderately Active (3-5 days/week)<br>
+            <input type="radio" name="activity" value="Very Active"> Very Active (6-7 days/week)<br>
+        </div>
+
+        <h4>How many meals and snacks do you eat per day?</h4>
+        <div class="checkbox-group">
+            <input type="radio" name="meals" value="3 meals, no snacks"> 3 Meals, No Snacks<br>
+            <input type="radio" name="meals" value="3 meals, 1 snack"> 3 Meals, 1 Snack<br>
+            <input type="radio" name="meals" value="3 meals, 2 snacks"> 3 Meals, 2 Snacks<br>
+            <input type="radio" name="meals" value="More than 3"> More than 3 Meals and Snacks<br>
+        </div>
+
+        <h4>Usual Meal Timing:</h4>
+        <label for="breakfast">Breakfast:</label>
+        <input type="time" id="breakfast" name="breakfast">
+
+        <label for="lunch">Lunch:</label>
+        <input type="time" id="lunch" name="lunch">
+
+        <label for="dinner">Dinner:</label>
+        <input type="time" id="dinner" name="dinner">
+
+        <label for="snacks">Snacks:</label>
+        <input type="time" id="snacks" name="snacks">
+
+        <h3>4. Health Goals and Preferences</h3>
+
+        <label for="goal">Your primary goal:</label>
+        <select id="goal" name="goal">
+            <option selected disabled>-- Choose your nutrition goal --</option>
+            <option>Weight Loss</option>
+            <option>Muscle Gain</option>
+            <option>Healthy Maintenance</option>
+            <option>General Well-being</option>
+        </select>
+
+        <label for="appearance">How do you want to look or feel?</label>
+        <select id="appearance" name="appearance">
+            <option selected disabled>-- Choose the way you want to be --</option>
+            <option>Lose Weight</option>
+            <option>Look Muscular</option>
+            <option>Feel Healthy</option>
+            <option>Improve Overall Appearance</option>
+        </select>
+
+        <label for="focus-area">Specific body area to focus on:</label>
+        <select id="focus-area" name="focusArea">
+            <option selected disabled>-- Choose the area you want to focus on --</option>
+            <option>Abdominal Fat</option>
+            <option>Muscle Tone</option>
+            <option>Overall Body Composition</option>
+            <option>Other</option>
+        </select>
+
+        <h3>5. Physical Activity</h3>
+
+        <p><b>What type of exercise do you currently do?</b></p>
+        <input type="checkbox" name="exercise[]" value="Cardio"> Cardio (running, cycling, swimming)<br>
+        <input type="checkbox" name="exercise[]" value="Strength Training"> Strength Training<br>
+        <input type="checkbox" name="exercise[]" value="Yoga"> Yoga/Pilates<br>
+        <input type="checkbox" name="exercise[]" value="Sports"> Sports (e.g., soccer, basketball)<br>
+        <input type="checkbox" name="exercise[]" value="Other"> Others:
+        <input type="text" name="exerciseOther">
+
+        <p><b>How often do you exercise per week?</b></p>
+        <input type="radio" name="exerciseFreq" value="Not at all"> Not at all<br>
+        <input type="radio" name="exerciseFreq" value="1-2 times"> 1-2 times<br>
+        <input type="radio" name="exerciseFreq" value="3-4 times"> 3-4 times<br>
+        <input type="radio" name="exerciseFreq" value="5+ times"> 5 or more times<br>
+
+        <p><b>How long do you typically exercise each session? (Select one)</b></p>
+
+<input type="radio" name="exercise-frequency" id="daily">
+<label for="daily">Daily</label> <br>
+<input type="radio" name="exercise-frequency" id="weekly">
+<label for="weekly">Weekly</label> <br>
+<input type="radio" name="exercise-frequency" id="monthly">
+<label for="monthly">Monthly</label> <br>
+<input type="radio" name="exercise-frequency" id="occasionally">
+<label for="occasionally">Occasionally</label> <br>
+<input type="radio" name="exercise-frequency" id="not-at-all">
+<label for="not-at-all">Not at all</label> <br>
+
+
+<p><b>Do you have any fitness goals or preferences? (Select all that apply)</b></p>
+
+<input type="checkbox" id="endurance" name="fitnessGoals[]" value="Increase Endurance">
+<label for="endurance">Increase Endurance</label><br>
+
+<input type="checkbox" id="build-strength" name="fitnessGoals[]" value="Build Strength">
+<label for="build-strength">Build Strength</label><br>
+
+<input type="checkbox" id="flexibility" name="fitnessGoals[]" value="Improve Flexibility">
+<label for="flexibility">Improve Flexibility</label><br>
+
+<input type="checkbox" id="weight-management" name="fitnessGoals[]" value="Weight Management">
+<label for="weight-management">Weight Management</label><br>
+
+<input type="checkbox" id="other-goals" name="fitnessGoals[]" value="Other">
+<label for="other-goals">Others:</label>
+<input type="text" id="other-goals-text" name="otherGoalsText" placeholder="Please specify"><br>
+
+
+<h3>6. Income and Budget</h3>
+
+<p><b>What is your monthly budget for groceries and foods? (Select one)</b></p>
+
+<input type="radio" name="budget" id="less-than-150k" value="Less than 150,000 MMK">
+<label for="less-than-150k">Less than 300,000 MMK</label><br>
+
+<input type="radio" name="budget" id="150k-300k" value="150,000 MMK - 300,000 MMK">
+<label for="150k-300k">300,000 MMK - 500,000 MMK</label><br>
+
+<input type="radio" name="budget" id="300k-500k" value="300,000 MMK - 500,000 MMK">
+<label for="300k-500k">500,000 MMK - 1000,000 MMK</label><br>
+
+<input type="radio" name="budget" id="more-than-500k" value="More than 500,000 MMK">
+<label for="more-than-500k">More than 1000,000 MMK</label><br>
+
+
+<p><b>Are you willing to invest in supplements or specialty foods? (Select all that apply)</b></p>
+
+<div class="checkbox-group">
+    <input type="checkbox" id="protein" name="investments[]" value="Protein Powders">
+    <label for="protein">Protein Powders</label><br>
+
+    <input type="checkbox" id="vitamins" name="investments[]" value="Vitamins">
+    <label for="vitamins">Vitamins</label><br>
+
+    <input type="checkbox" id="organic" name="investments[]" value="Organic Foods">
+    <label for="organic">Organic Foods</label><br>
+
+    <input type="checkbox" id="diet" name="investments[]" value="Specialty Diet Foods">
+    <label for="diet">Specialty Diet Foods</label><br>
+
+    <input type="checkbox" id="not-interested" name="investments[]" value="Not Interested">
+    <label for="not-interested">Not Interested</label><br>
+</div>
+
+
+<h3>7. Additional Information</h3>
+
+<p><b>Do you take any dietary supplements? (Select all that apply)</b></p>
+
+<div class="checkbox-group">
+    <input type="checkbox" id="multivitamins" name="supplements[]" value="Multivitamins">
+    <label for="multivitamins">Multivitamins</label><br>
+
+    <input type="checkbox" id="protein-supplements" name="supplements[]" value="Protein Supplements">
+    <label for="protein-supplements">Protein Supplements</label><br>
+
+    <input type="checkbox" id="omega-3" name="supplements[]" value="Omega-3s">
+    <label for="omega-3">Omega-3s</label><br>
+
+    <input type="checkbox" id="fiber-supplements" name="supplements[]" value="Fiber Supplements">
+    <label for="fiber-supplements">Fiber Supplements</label><br>
+
+    <input type="checkbox" id="none" name="supplements[]" value="None">
+    <label for="none">None</label><br>
+</div>
+
+<br>
+<input type="submit" value="Submit">
+
+</form>
+</body>
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const formData = new FormData(form);
+        const data = {};
+
+        formData.forEach((value, key) => {
+            if (data[key]) {
+                if (Array.isArray(data[key])) {
+                    data[key].push(value);
+                } else {
+                    data[key] = [data[key], value];
+                }
+            } else {
+                data[key] = value;
+            }
+        });
+
+        console.log('Sending data:', data);
+
+        fetch('http://localhost:3000/submit-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.text())
+            .then((response) => {
+                alert(response); // Show success message
+            })
+            .catch((error) => console.log('Error:', error));
+    });
+</script>
+</html>
+
