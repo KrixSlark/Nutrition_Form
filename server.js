@@ -10,6 +10,7 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+
 // Define the email sending function
 const sendEmail = (formData) => {
     const transporter = nodemailer.createTransport({
@@ -75,7 +76,10 @@ app.post('/submit-form', (req, res) => {
     res.send('Form submitted successfully!');
 });
 
-// Start the server
+app.get('/', (req, res) => {
+  res.send('Nutrition Form API is running!');
+});
+
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
